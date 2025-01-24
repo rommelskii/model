@@ -7,14 +7,11 @@ import torch
 from tqdm import tqdm
 import google.generativeai as genai
 
-torch.set_num_threads(6)  # Adjust based on your CPU cores
-torch.set_num_interop_threads(6)
-
 # Initialize TrOCR
 trocr_device = torch.device('cpu')
-trocr_processor = TrOCRProcessor.from_pretrained('microsoft/trocr-small-handwritten', use_fast=True)
-trocr_model = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-small-handwritten').to(trocr_device)
-trocr_model = trocr_model.half()
+trocr_processor = TrOCRProcessor.from_pretrained('microsoft/trocr-base-handwritten', use_fast=True)
+trocr_model = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-base-handwritten').to(trocr_device)
+
 
 
 genai.configure(api_key="AIzaSyA_dUIPPaNxppOHVXHzYaYEl65ytsl63bY")
