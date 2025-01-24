@@ -156,7 +156,7 @@ def aqg(text):
     Returns:
         list: List of generated questions.
     """
-    keywords = kw_model.extract_keywords(text, keyphrase_ngram_range=(1, 5), stop_words=None, top_n=10)
+    keywords = kw_model.extract_keywords(text, keyphrase_ngram_range=(1, 7), stop_words=None, top_n=10)
     keyword_array = [keyword for keyword, score in keywords]
     questions = []
 
