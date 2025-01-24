@@ -1,0 +1,63 @@
+
+:host {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(../assets/bliss.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%; /* Full viewport height */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.mainframe {
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-bar {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAIAAABi9+OQAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAzfHTVMAAAAJcEhZcwAADrwAAA68AZW8ckkAAABhSURBVAjXNcqxDQIxFATR/bM+k1wFlAKV0DkJEgFcRIROIIy/TABEoyeNOFzY7bfcUhxPQX0utHWm5ErvbyQRUbCDzPGzkcTg34LCyBV5+j6ToQzSDXlDPERtndf1TOj+AXlzHUxFxv9TAAAAAElFTkSuQmCC");
+    height: 30px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.contents {
+    display: flex; 
+	background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    padding-top: 7vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    padding-bottom: 5vh;
+    border-left: 2px solid #0050ee;
+    border-bottom: 2px solid #0050ee;
+    border-right: 2px solid #0050ee;
+}
+
+.contents > * {
+    padding: 2vh;
+}
+
+.subframe {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px;
+    border-color: #0050ee;
+}

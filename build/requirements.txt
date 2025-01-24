@@ -1,0 +1,14 @@
+opencv-python
+torch
+torchvision
+numpy
+matplotlib
+sentencepiece
+transformers
+gunicorn
+flask
+requests
+google-generativeai
+b64
+keybert
+flask-cors

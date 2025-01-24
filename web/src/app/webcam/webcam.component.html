@@ -1,0 +1,12 @@
+<div class="container">
+    <!-- Video Element to Show Webcam Feed -->
+    <video #video autoplay></video>
+  
+    <!-- Canvas Element to Hold Captured Image -->
+    <canvas #canvas style="display: none;"></canvas>
+  
+    <!-- Buttons for Actions -->
+    <button (click)="captureImage()">Capture Image</button>
+    <button #cancelButton (click)="initCancel()">Cancel</button>
+  </div>
+  
