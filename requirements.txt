@@ -1,0 +1,10 @@
+opencv-python
+torch
+torchvision
+numpy
+matplotlib
+sentencepiece
+transformers
+gunicorn
+flask
+requests
