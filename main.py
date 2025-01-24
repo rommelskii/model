@@ -55,7 +55,7 @@ def process_and_crop_image(image):
     rotation_matrix_adjusted = cv2.getRotationMatrix2D(center, adjusted_angle, 1.0)
     adjusted_rotated_image = cv2.warpAffine(image, rotation_matrix_adjusted, (w, h),
                                             flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
-    cv2.imwrite("adjusted_rotated_image.png", adjusted_rotated_image) # Debug rotated
+    cv2.imwrite("./debug/adjusted_rotated_image.png", adjusted_rotated_image) # Debug rotated
 
     # Threshold the image to binary
     _, thresholded_image = cv2.threshold(adjusted_rotated_image, 127, 255, cv2.THRESH_BINARY)
@@ -69,7 +69,7 @@ def process_and_crop_image(image):
     # Apply dilation to isolate text mass
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (30, 3))
     dilated = cv2.dilate(binary, kernel, iterations=3)
-    cv2.imwrite("dilated.png", dilated) # Debug dilated
+    cv2.imwrite("./debug/dilated.png", dilated) # Debug dilated
 
     # Find contours of the text mass
     contours, _ = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -160,7 +160,7 @@ def plot_cropped_images(cropped_images):
         plt.axis("off")
         plt.show()
 
-image_path = "./cropped_image.png"
+image_path = "./debug/cropped_image.png"
 image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 cropped_images = process_and_crop_image(image)
 plot_cropped_images(cropped_images)
