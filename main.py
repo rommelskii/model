@@ -9,10 +9,8 @@ import google.generativeai as genai
 
 # Initialize TrOCR
 trocr_device = torch.device('cpu')
-trocr_processor = TrOCRProcessor.from_pretrained('microsoft/trocr-base-handwritten', use_fast=True)
-trocr_model = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-base-handwritten').to(trocr_device)
-
-
+trocr_processor = TrOCRProcessor.from_pretrained('microsoft/trocr-small-handwritten', use_fast=True)
+trocr_model = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-small-handwritten').to(trocr_device)
 
 genai.configure(api_key="AIzaSyA_dUIPPaNxppOHVXHzYaYEl65ytsl63bY")
 gemini_model = genai.GenerativeModel("gemini-1.5-flash")
@@ -139,7 +137,7 @@ def batch_infer_trocr(cropped_images):
 
 
     # Correct the combined text using Gemini
-    gemini_response = gemini_model.generate_content(f"The following text is a collection of OCR extracted keywords possibly mispelled or incorrect. Based on the keywords, try to create a recreated paragraph based on the information you know regarding the keywords. If you think there is a mistake on the words or text, please correct it based on what you know. Note that there may be mispelled acronyms and such.: {combined_text}. Do not reference anything diagrammatical nor provide any filler analysis words on your end.")
+    gemini_response = gemini_model.generate_content(f"The following text is a collection of OCR extracted keywords possibly mispelled or incorrect. Based on the keywords, try to create a recreated paragraph based on the information you know regarding the keywords. If you think there is a mistake on the words or text, please correct it based on what you know. Note that there may be mispelled acronyms and such.: {combined_text}. Do not reference anything diagrammatical nor provide any filler analysis words on your end. Also, ignore the part in the text that contains a lot of 0's")
 
     corrected_text = extract_response(gemini_response)
     print(combined_text)
